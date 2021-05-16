@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MonsterAir.Models;
 using System;
@@ -18,11 +19,13 @@ namespace MonsterAir.Controllers
             _logger = logger;
         }
 
+       
         public IActionResult Index()
         {
             return View();
         }
 
+        
         public IActionResult Privacy()
         {
             return View();
