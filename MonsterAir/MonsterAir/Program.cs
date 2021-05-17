@@ -50,7 +50,6 @@ namespace MonsterAir
             try
             {
                 Log.Information("Application Starting up");
-                throw new Exception();
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
