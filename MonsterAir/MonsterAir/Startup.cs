@@ -80,7 +80,7 @@ namespace MonsterAir
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Index}");
                 //endpoints.MapRazorPages();
             });
         }
