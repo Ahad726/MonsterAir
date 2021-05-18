@@ -1,1 +1,120 @@
 
+2021-05-18 08:44:35.009 +06:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at MonsterAir.Program.Main(String[] args) in C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir\Program.cs:line 53
+2021-05-18 08:48:25.566 +06:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at MonsterAir.Program.Main(String[] args) in C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir\Program.cs:line 53
+2021-05-18 09:14:34.299 +06:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Contexts.AirContext Lifetime: Scoped ImplementationType: MonsterAir.Core.Contexts.AirContext': Unable to resolve service for type 'System.String' while attempting to activate 'MonsterAir.Core.Contexts.AirContext'.) (Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Contexts.AirContext Lifetime: Scoped ImplementationType: MonsterAir.Core.Contexts.AirContext': Unable to resolve service for type 'System.String' while attempting to activate 'MonsterAir.Core.Contexts.AirContext'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'System.String' while attempting to activate 'MonsterAir.Core.Contexts.AirContext'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at MonsterAir.Program.Main(String[] args) in C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir\Program.cs:line 53
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-05-18 09:26:27.237 +06:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at MonsterAir.Program.Main(String[] args) in C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir\Program.cs:line 53
+2021-05-18 09:43:20.953 +06:00 [FTL] Application start-up failed
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MonsterAir.Core.Repositories.IFlightRepository Lifetime: Transient ImplementationType: MonsterAir.Core.Repositories.FlightRepository': Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Microsoft.EntityFrameworkCore.DbContext' while attempting to activate 'MonsterAir.Core.Repositories.FlightRepository'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at MonsterAir.Program.Main(String[] args) in C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir\Program.cs:line 53
+2021-05-18 12:42:17.813 +06:00 [FTL] Application start-up failed
+System.NotSupportedException: ConfigureServices returning an System.IServiceProvider isn't supported.
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.UseStartup(Type startupType, HostBuilderContext context, IServiceCollection services, Object instance)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass13_0.<UseStartup>b__0(HostBuilderContext context, IServiceCollection services)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at MonsterAir.Program.Main(String[] args) in C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir\Program.cs:line 53
+2021-05-18 13:14:41.981 +06:00 [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.

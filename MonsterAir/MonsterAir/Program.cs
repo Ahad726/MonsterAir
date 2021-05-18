@@ -11,6 +11,7 @@ using Serilog.Sinks.Email;
 using System.Net;
 using Serilog;
 using Serilog.Events;
+using Autofac.Extensions.DependencyInjection;
 
 namespace MonsterAir
 {
@@ -65,6 +66,7 @@ namespace MonsterAir
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            .UseServiceProviderFactory(new AutofacServiceProviderFactory())
             .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
