@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MonsterAir.Core.Contexts;
 using MonsterAir.Data;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,15 @@ namespace MonsterAir.DataSeed
         private readonly UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly ApplicationDbContext applicationDbContext;
+        private readonly AirContext airContext;
 
         public DbInitializer(UserManager<IdentityUser> userManager,
-            RoleManager<IdentityRole> roleManager, ApplicationDbContext applicationDbContext)
+            RoleManager<IdentityRole> roleManager, ApplicationDbContext applicationDbContext, AirContext airContext)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.applicationDbContext = applicationDbContext;
+            this.airContext = airContext;
         }
         public async Task InitializeAsync()
         {
@@ -27,6 +30,11 @@ namespace MonsterAir.DataSeed
             if (applicationDbContext.Database.GetPendingMigrations().Count() > 0)
             {
                 applicationDbContext.Database.Migrate();
+            }
+
+            if (airContext.Database.GetAppliedMigrations().Count() > 0)
+            {
+                airContext.Database.Migrate();
             }
 
             // Return if Admin role exists
