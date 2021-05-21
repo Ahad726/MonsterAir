@@ -13,7 +13,7 @@ namespace MonsterAir.Core.Entities
         public string FlightName { get; set; }
         public string Source { get; set; }
         public string Destination { get; set; }
-        public DateTime TakeOfDate { get; set; }
+        public string TakeOfDate { get; set; }
         public string Time { get; set; }
         public string AirportName { get; set; }
         public double Price { get; set; }

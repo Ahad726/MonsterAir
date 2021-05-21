@@ -1,7 +1,58 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MonsterAir.Models.FlightModels.FlightViewModel
+
 @{
+    ViewData["Title"] = "Flights";
 }
 
-Hi From Flight Controller / Index
+@section Styles{
+    <link href="~/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" />
+}
+
+
+@section Scripts
+{
+    <!-- DataTables -->
+    <script src="~/admin/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="~/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
+    <!-- page script -->
+    <script>
+
+
+    </script>
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Available Flights</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="tb" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" /></th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>From City</th>
+                            <th>To City</th>
+                            <th>Airport</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+
+

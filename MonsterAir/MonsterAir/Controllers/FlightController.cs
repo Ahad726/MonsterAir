@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MonsterAir.Models;
 using MonsterAir.Models.FlightModels;
 using System;
 using System.Collections.Generic;
@@ -20,16 +22,27 @@ namespace MonsterAir.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public IActionResult Add(FlightModel flight)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var model = new FlightUpdateModel();
                 model.AddNewFlight(flight);
                 return RedirectToAction(nameof(FlightController.Index));
             }
-            return RedirectToAction(nameof(FlightController.Add));
+            // If we got this far, something failed, redisplay form
+            return View(flight);
+        }
+
+        [Authorize]
+        public IActionResult GetFlights()
+        {
+            var tableModel = new DataTablesAjaxRequestModel(Request);
+            var model = new FlightViewModel();
+            var data = model.GetAllFlights();
+            return Json(data);
         }
     }
 }

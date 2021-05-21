@@ -18,15 +18,17 @@ namespace MonsterAir.Models.FlightModels
 
         public void AddNewFlight(FlightModel flight)
         {
+            var date = flight.TakeOfDate.ToString().Split(' ');
             _flightService.AddNewFlight(new Flight
             {
                 FlightCode = flight.FlightCode,
                 FlightName = flight.FlightName,
                 Source = flight.Source,
                 Destination = flight.Destination,
-                TakeOfDate = flight.TakeOfDate,
+                TakeOfDate = date[0],
                 AirportName = flight.AirportName,
-                Price = flight.Price,
+                Time = flight.TakeOfDate.Value.TimeOfDay.ToString(),
+                Price = (double)flight.Price,
                 Description = flight.Description,
             });
         }
