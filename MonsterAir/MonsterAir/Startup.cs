@@ -104,8 +104,7 @@ namespace MonsterAir
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Dashboard}/{action=Index}");
-                //endpoints.MapRazorPages();
+                    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
             });
         }
     }
