@@ -57,7 +57,10 @@ namespace MonsterAir.Core.Services
                 
                 out total,
                 out totalFiltered,
-                 x => x.FlightName.Contains(searchText),
+                 x => x.FlightName.Contains(searchText) || x.FlightCode.Contains(searchText)
+                 || x.AirportName.Contains(searchText) || x.Source.Contains(searchText)
+                 || x.Destination.Contains(searchText) || x.TakeOfDate.Contains(searchText)
+                 || x.Time.Contains(searchText) || x.Price.ToString().Contains(searchText),
                 null,
                 "",
                 pageIndex,

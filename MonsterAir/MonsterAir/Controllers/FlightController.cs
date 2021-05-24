@@ -5,6 +5,7 @@ using MonsterAir.Models.FlightModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MonsterAir.Controllers
@@ -36,12 +37,13 @@ namespace MonsterAir.Controllers
             return View(flight);
         }
 
+        [HttpGet]
         [Authorize]
         public IActionResult GetFlights()
         {
             var tableModel = new DataTablesAjaxRequestModel(Request);
             var model = new FlightViewModel();
-            var data = model.GetAllFlights();
+            var data = model.GetFlights(tableModel);
             return Json(data);
         }
     }
