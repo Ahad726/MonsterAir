@@ -45,8 +45,7 @@ namespace MonsterAir.Models.FlightModels
                                 record.TakeOfDate,
                                 record.Time,
                                 record.Price.ToString(),
-                                record.Description,
-                                 record.FlightId.ToString()
+                                record.Description
                         }
                     ).ToArray()
 
