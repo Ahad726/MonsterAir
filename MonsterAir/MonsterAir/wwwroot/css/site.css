@@ -29,7 +29,7 @@ a {
 html {
     font-size: 14px;
 }
-@media (min-width: 768px) {
+@media screen and (min-width: 786px) {
   html {
     font-size: 14px;
   }

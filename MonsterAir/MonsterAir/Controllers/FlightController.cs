@@ -17,13 +17,15 @@ namespace MonsterAir.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public IActionResult Add(FlightModel flight)
         {
@@ -38,7 +40,7 @@ namespace MonsterAir.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+       /// [Authorize]
         public IActionResult GetFlights()
         {
             var tableModel = new DataTablesAjaxRequestModel(Request);

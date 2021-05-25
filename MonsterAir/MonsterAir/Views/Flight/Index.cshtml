@@ -21,14 +21,38 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="width:max-content">
     <div class="row pt-4">
         <div class="card card-primary">
+            <!-- card-header -->
             <div class="card-header">
                 <h3 class="card-title">Available Flights</h3>
             </div>
             <!-- /.card-header -->
+            <!-- card-body -->
             <div class="card-body">
+                <!--Edit And Delete-->
+                @{
+                    if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <button type="submit" class="btn btn-outline-success btn-sm" onclick="window.location.href='/admin/category/edit/${data}'" value=''>
+                                    <i class="fas fa-pencil-alt"></i>
+                                    Edit
+                                </button>
+                                <button type="submit" class="ml-sm-2 btn btn-outline-danger btn-sm" onclick="window.location.href='/admin/category/edit/${data}'" value=''>
+                                    <i class="fas fa-minus-circle"></i>
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                            </div>
+                        </div>
+                    }
+                }
+                <!--/.Edit And Delete-->
+
                 <table id="tb" class="table table-bordered table-striped" style="width:100%">
                     <thead>
                         <tr>
@@ -67,7 +91,8 @@
         $('#tb').DataTable({
             processing: true,
             serverSide: true,
-            orderable: false,
+            lengthChange: false,
+            ordering: false,
 
             ajax: {
                 url: "Flight/GetFlights",
@@ -83,26 +108,27 @@
                 }
             },
 
-            "columnDefs": [
+            columnDefs: [
                 {
-                    "orderable": false,
                     "targets": 0,
                     "render": function (data, type, row) {
                         return `<input type='checkbox' value='${data}'/>`;
                     }
                 },
                 {
-                    "orderable": false,
                     "targets": -1,
                     "render": function (data, type, row) {
                         return `<button type="submit" class="btn btn-info btn-sm" onclick="window.location.href='/admin/category/edit/${data}'" value='${data}'>
-                                                <i class="fas fa-pencil-alt"></i> Book</button>`;
+                                                                    <i class="fas fa-ticket-alt"></i> Book</button>`;
                     }
                 }
 
             ]
         });
 
+        $(document).ready(function () {
 
+            $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+        });
     </script>
 }
