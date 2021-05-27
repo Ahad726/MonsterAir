@@ -1,4 +1,7 @@
 ﻿@model MonsterAir.Models.FlightModels.FlightViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Flights";
@@ -6,7 +9,75 @@
 
 @section Styles{
     <link href="~/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" />
+
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
 }
+
+
+
+
+
+<div class="container-fluid" style="width:max-content">
+    <div class="row pt-4">
+        <div class="card card-primary">
+            <!-- card-header -->
+            <div class="card-header">
+                <h3 class="card-title">Available Flights</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- card-body -->
+            <div class="card-body">
+                <!--Edit And Delete-->
+                @{
+                    if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <button type="submit" class="btn btn-outline-success btn-sm" onclick="window.location.href='/admin/category/edit/${data}'" value=''>
+                                    <i class="fas fa-pencil-alt"></i>
+                                    Edit
+                                </button>
+                                <button type="submit" class="ml-sm-2 btn btn-outline-danger btn-sm" onclick="window.location.href='/admin/category/edit/${data}'" value=''>
+                                    <i class="fas fa-minus-circle"></i>
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                            </div>
+                        </div>
+                    }
+                }
+                <!--/.Edit And Delete-->
+
+                <table id="tb" class="table table-bordered table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" /></th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Airport</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <!-- /.col -->
+</div>
 
 
 @section Scripts
@@ -16,43 +87,48 @@
     <script src="~/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 
     <!-- page script -->
-    <script>
+    <script type="text/javascript">
+        $('#tb').DataTable({
+            processing: true,
+            serverSide: true,
+            lengthChange: false,
+            ordering: false,
 
+            ajax: {
+                url: "Flight/GetFlights",
+                type: "GET",
+                data: function (data) {
+                    for (var i = 0, len = data.columns.length; i < len; i++) {
+                        if (!data.columns[i].search.value) delete data.columns[i].search;
+                        if (data.columns[i].searchable === true) delete data.columns[i].searchable;
+                        if (data.columns[i].orderable === true) delete data.columns[i].orderable;
+                        if (data.columns[i].data === data.columns[i].name) delete data.columns[i].name;
+                    }
+                    delete data.search.regex;
+                }
+            },
 
+            columnDefs: [
+                {
+                    "targets": 0,
+                    "render": function (data, type, row) {
+                        return `<input type='checkbox' value='${data}'/>`;
+                    }
+                },
+                {
+                    "targets": -1,
+                    "render": function (data, type, row) {
+                        return `<button type="submit" class="btn btn-info btn-sm" onclick="window.location.href='/admin/category/edit/${data}'" value='${data}'>
+                                                                    <i class="fas fa-ticket-alt"></i> Book</button>`;
+                    }
+                }
+
+            ]
+        });
+
+        $(document).ready(function () {
+
+            $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+        });
     </script>
 }
-
-
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Available Flights</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                <table id="tb" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox" /></th>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>From City</th>
-                            <th>To City</th>
-                            <th>Airport</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-    </div>
-    <!-- /.col -->
-</div>
-
-
