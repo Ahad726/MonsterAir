@@ -57,5 +57,31 @@ namespace MonsterAir.Models.FlightModels
         {
             return _flightService.GetAllFlights();
         }
+
+        public Flight GetById(int id)
+        {
+            return _flightService.GetFlight(id);
+        }
+
+        public FlightModel Load(int id)
+        {
+            var flight = _flightService.GetFlight(id);
+
+            var dateTime = Convert.ToDateTime(flight.TakeOfDate + " " + flight.Time);
+
+            return new FlightModel
+            {
+                FlightId = flight.FlightId,
+                FlightCode = flight.FlightCode,
+                FlightName = flight.FlightName,
+                Source = flight.Source,
+                Destination = flight.Destination,
+                AirportName = flight.AirportName,
+                TakeOfDate = dateTime,
+                Price = flight.Price,
+                Description = flight.Description
+
+            };
+        }
     }
 }

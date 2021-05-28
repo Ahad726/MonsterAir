@@ -68,9 +68,7 @@ namespace MonsterAir
 
             services.AddTransient<UserManager<IdentityUser>>();
             services.AddTransient<SignInManager<IdentityUser>>();
-
-            services.AddEntityFrameworkSqlServer();         
-
+               
             services.AddControllersWithViews();
 
         }

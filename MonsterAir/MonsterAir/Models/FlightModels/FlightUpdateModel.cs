@@ -32,5 +32,33 @@ namespace MonsterAir.Models.FlightModels
                 Description = flight.Description,
             });
         }
+
+        public void DeleteFlights(IEnumerable<int> flightIds)
+        {
+            foreach (var id in flightIds)
+            {
+                _flightService.DeleteFlight(id);
+            }
+           
+        }
+
+        public void UpdateFlight(FlightModel flight)
+        {
+            var date = flight.TakeOfDate.ToString().Split(' ');
+
+            _flightService.EditFlight(new Flight
+            {
+                FlightId = flight.FlightId,
+                FlightCode = flight.FlightCode,
+                FlightName = flight.FlightName,
+                Source = flight.Source,
+                Destination = flight.Destination,
+                TakeOfDate = date[0],
+                AirportName = flight.AirportName,
+                Time = flight.TakeOfDate.Value.TimeOfDay.ToString(),
+                Price = (double)flight.Price,
+                Description = flight.Description,
+            });
+        }
     }
 }
