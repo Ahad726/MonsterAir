@@ -8,6 +8,7 @@ namespace MonsterAir.Models.FlightModels
 {
     public class FlightModel
     {
+        public int FlightId { get; set; }
         [Required(AllowEmptyStrings =false,ErrorMessage ="Flight Code is required")]
         [Display(Name ="Flight Code")]
         public string FlightCode { get; set; }

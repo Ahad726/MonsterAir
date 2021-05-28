@@ -36,9 +36,10 @@ namespace MonsterAir.Core.Services
         {
             var oldFlight = _flightUnitOfWork.FlightRepository.GetById(flight.FlightId);
             oldFlight = flight;
-            _flightUnitOfWork.Save();
-        }
+            _flightUnitOfWork.FlightRepository.Edit(oldFlight);
 
+            _flightUnitOfWork.Save();
+        }  
         public IEnumerable<Flight> GetAllFlights()
         {
             var flights = _flightUnitOfWork.FlightRepository.GetAll();

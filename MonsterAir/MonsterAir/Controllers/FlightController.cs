@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace MonsterAir.Controllers
 {
+    //[Authorize]
     public class FlightController : Controller
     {
         public IActionResult Index()
@@ -40,13 +41,39 @@ namespace MonsterAir.Controllers
         }
 
         [HttpGet]
-       /// [Authorize]
         public IActionResult GetFlights()
         {
             var tableModel = new DataTablesAjaxRequestModel(Request);
             var model = new FlightViewModel();
             var data = model.GetFlights(tableModel);
             return Json(data);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var model = new FlightViewModel();
+            FlightModel flightModel = model.Load(id);
+            return View(flightModel);
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(FlightModel model)
+        {
+            var flightUpModel = new FlightUpdateModel();
+            flightUpModel.UpdateFlight(model);
+            return RedirectToAction(nameof(FlightController.Index));
+
+        }
+
+        [HttpPost]
+        public IActionResult Delete(IEnumerable<int> flightIds)
+        {
+            var model = new FlightUpdateModel();
+            model.DeleteFlights(flightIds);
+            return Json(flightIds.Count());
+
         }
     }
 }
