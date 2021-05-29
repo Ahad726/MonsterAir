@@ -1,0 +1,15 @@
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\bin\Debug\net5.0\MonsterAir.Data.deps.json
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\bin\Debug\net5.0\MonsterAir.Data.runtimeconfig.json
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\bin\Debug\net5.0\MonsterAir.Data.runtimeconfig.dev.json
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\bin\Debug\net5.0\MonsterAir.Data.dll
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\bin\Debug\net5.0\ref\MonsterAir.Data.dll
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\bin\Debug\net5.0\MonsterAir.Data.pdb
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.AssemblyInfoInputs.cache
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.AssemblyInfo.cs
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.csproj.CoreCompileInputs.cache
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.dll
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\ref\MonsterAir.Data.dll
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.pdb
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.genruntimeconfig.cache
+C:\Users\ATM\Desktop\MonsterAir\MonsterAir\MonsterAir.Data\obj\Debug\net5.0\MonsterAir.Data.csprojAssemblyReference.cache
