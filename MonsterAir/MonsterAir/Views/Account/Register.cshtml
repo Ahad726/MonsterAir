@@ -1,10 +1,10 @@
-﻿@model LoginModel
+﻿
+@model RegisterModel
+
 @{
     ViewData["Title"] = "MonsterAir | Sign Up";
     Layout = "_AccountLayout";
 }
-
-
 
 @section Styles{
 
@@ -12,7 +12,7 @@
         .login-popup {
             border-radius: 10px;
             position: relative;
-            padding-top: 10%;
+            padding-top: 8%;
             opacity: 0.8;
         }
 
@@ -20,6 +20,7 @@
             overflow: hidden;
             position: relative;
         }
+
     </style>
 
 }
@@ -30,10 +31,10 @@
             <div class="login-card-body p-lg-5">
 
                 <form id="account" method="post">
-                    <p class="card-title">Sign in to start your session</p>
+                    <p class="card-title">Sign Up to start your session</p>
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="input-group pt-2">
-                        <input type="email" asp-for="Email" class="form-control" placeholder="Enter Email" />
+                        <input type="email" asp-for="Email" class="form-control" placeholder="Email" />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -41,7 +42,15 @@
                         </div>
                     </div>
                     <div class="input-group pt-2">
-                        <input type="password" asp-for="Password" class="form-control" placeholder="Enter Password">
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group pt-2">
+                        <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -49,49 +58,21 @@
                         </div>
                     </div>
                     <div class="row pt-3">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" asp-for="RememberMe" id="remember" value="false">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                         </div>
                     </div>
-
                     <p class="mb-0">
-                        <a href="forgot-password.html">I forgot my password</a>
-                    </p>
-                    <p class="mb-0">
-                        @Html.ActionLink("Register New Membership", "Register", "Account")
+                        @Html.ActionLink("SignIn Instead", "Login", "Account")
                     </p>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!-- /.login-card-body -->
-<!--</div>
-    </div>
-</div>-->
-<!-- /.login-box -->
+
 
 @section Scripts{
-    <script type="text/javascript">
-
-        $(document).on('click', '#remember', function () {
-            if ($(this).is(':checked')) {
-                $(this).val(true);
-            }
-            else {
-                $(this).val(false);
-            }
-        });
-
-    </script>
 
 
 }

@@ -15,11 +15,13 @@ namespace MonsterAir.Controllers
     {
         private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AccountController(ILogger<AccountController> logger, SignInManager<IdentityUser> signInManager)
+        public AccountController(ILogger<AccountController> logger, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
-            this._signInManager = signInManager;
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -63,5 +65,40 @@ namespace MonsterAir.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Register(string returnUrl = null)
+        {
+            var model = new RegisterModel();
+            model.ReturnUrl = returnUrl;
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterModel model)
+        {
+            model.ReturnUrl = model.ReturnUrl ?? Url.Content("~/");
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation("User created a new account with password.");
+                   
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(model.ReturnUrl);
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
     }
 }
