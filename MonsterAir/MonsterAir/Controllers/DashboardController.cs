@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MonsterAir.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
         private readonly ILogger<DashboardController> _logger;
@@ -18,7 +19,6 @@ namespace MonsterAir.Controllers
         }
 
 
-        [Authorize]
         public IActionResult Index()
         {
             return View();
