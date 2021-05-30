@@ -35,9 +35,17 @@ namespace MonsterAir.Core.Services
         public void EditFlight(Flight flight)
         {
             var oldFlight = _flightUnitOfWork.FlightRepository.GetById(flight.FlightId);
-            oldFlight = flight;
-            _flightUnitOfWork.FlightRepository.Edit(oldFlight);
 
+            oldFlight.FlightName = flight.FlightName;
+            oldFlight.FlightCode = flight.FlightCode;
+            oldFlight.FlightName = flight.FlightName;
+            oldFlight.Source = flight.Source;
+            oldFlight.Destination = flight.Destination;
+            oldFlight.TakeOfDate = flight.TakeOfDate;
+            oldFlight.AirportName = flight.AirportName;
+            oldFlight.Time = flight.Time;
+            oldFlight.Price = flight.Price;
+            oldFlight.Description = flight.Description;
             _flightUnitOfWork.Save();
         }  
         public IEnumerable<Flight> GetAllFlights()
