@@ -28,8 +28,10 @@ namespace MonsterAir.Controllers
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl = null)
         {
-            var model = new LoginModel();
-            model.ReturnUrl = returnUrl ?? Url.Content("~/");
+            var model = new LoginModel
+            {
+                ReturnUrl = returnUrl ?? Url.Content("~/")
+            };
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
