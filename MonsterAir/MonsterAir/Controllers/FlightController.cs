@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MonsterAir.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class FlightController : Controller
     {
         public IActionResult Index()
@@ -75,5 +75,14 @@ namespace MonsterAir.Controllers
             return Json(flightIds.Count());
 
         }
+
+        [HttpGet]
+        public IActionResult Confirm(int id)
+        {
+            var model = new FlightViewModel();
+            FlightModel flightModel = model.Load(id);
+            return View(flightModel);
+        }
+
     }
 }
