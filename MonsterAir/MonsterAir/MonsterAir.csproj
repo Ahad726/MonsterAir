@@ -26,4 +26,6 @@
     <ProjectReference Include="..\MonsterAir.Core\MonsterAir.Core.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+
 </Project>

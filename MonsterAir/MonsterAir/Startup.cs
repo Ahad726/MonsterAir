@@ -16,6 +16,7 @@ using MonsterAir.Core.Services;
 using MonsterAir.Core.UnitOfWork;
 using MonsterAir.Data;
 using MonsterAir.DataSeed;
+using MonsterAir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,7 +69,8 @@ namespace MonsterAir
 
             services.AddTransient<UserManager<IdentityUser>>();
             services.AddTransient<SignInManager<IdentityUser>>();
-               
+
+            services.Configure<EnvironmentVariables>(option => Configuration.GetSection("EnvironmentVariables").Bind(option));
             services.AddControllersWithViews();
 
         }
