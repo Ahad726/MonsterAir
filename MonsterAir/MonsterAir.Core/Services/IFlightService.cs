@@ -20,5 +20,6 @@ namespace MonsterAir.Core.Services
         IEnumerable<Flight> GetAllFlights();
         void EditFlight(Flight flight);
         void DeleteFlight(int id);
+        Task<Flight> GetFlightByIdAsync(int id);
     }
 }

@@ -34,6 +34,6 @@ namespace MonsterAir.Core.Contexts
         }
 
         public DbSet<Flight> Flights { get; set; }
-        public DbSet<FlightHistory> FlightHistory { get; set; }
+        public DbSet<JourneyHistory> FlightHistory { get; set; }
     }
 }

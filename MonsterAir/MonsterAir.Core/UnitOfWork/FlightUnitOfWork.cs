@@ -12,10 +12,13 @@ namespace MonsterAir.Core.UnitOfWork
     public class FlightUnitOfWork : UnitOfWork<AirContext>, IFlightUnitOfWork
     {
         public IFlightRepository FlightRepository { get; set; }
+
+        public IJourneyRepository JourneyRepository { get; set; }
         public FlightUnitOfWork(string connectionString, string migrationAssemblyName)
             : base(connectionString, migrationAssemblyName)
         {
             FlightRepository = new FlightRepository(_dbContext);
+            JourneyRepository = new JourneyRepository(_dbContext);
 
         }
 

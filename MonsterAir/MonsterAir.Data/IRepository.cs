@@ -28,5 +28,7 @@ namespace MonsterAir.Data
         void Remove(Expression<Func<T, bool>> filter);
         void Remove(int id);
         void Remove(T entityToDelete);
+        Task AddAsync(T entity);
+        Task<T> GetByIdAsync(int id);
     }
 }

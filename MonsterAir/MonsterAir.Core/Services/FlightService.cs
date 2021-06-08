@@ -60,6 +60,11 @@ namespace MonsterAir.Core.Services
             return flight;
         }
 
+        public async Task<Flight> GetFlightByIdAsync(int id)
+        {
+            return await _flightUnitOfWork.FlightRepository.GetByIdAsync(id);
+        }
+
         public IEnumerable<Flight> GetFlights(int pageIndex, int pageSize, string searchText, out int total, out int totalFiltered)
         {
             return _flightUnitOfWork.FlightRepository.Get(

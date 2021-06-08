@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MonsterAir.Models;
 using MonsterAir.Models.FlightModels;
+using MonsterAir.Models.JourneyHistoryModels;
 using MonsterAir.PaymentGateway;
 using System;
 using System.Collections.Generic;
@@ -113,7 +114,7 @@ namespace MonsterAir.Controllers
             var user = await _userManager.GetUserAsync(User);
             var userId = user.Id;
 
-            NameValueCollection PostData = new NameValueCollection
+            NameValueCollection PostData = new()
             {
                 { "total_amount", model.Price.ToString() },
                 { "currency", "BDT"},
@@ -143,7 +144,7 @@ namespace MonsterAir.Controllers
             return Redirect(response.GatewayPageURL);
         }
 
-        private string GenerateUniqueId()
+        private static string GenerateUniqueId()
         {
             long i = 1;
 
@@ -157,7 +158,7 @@ namespace MonsterAir.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult PaymentGatewayCallback(SSLCommerzValidatorResponse response)
+        public async Task<IActionResult> PaymentGatewayCallbackAsync(SSLCommerzValidatorResponse response)
         {
             if (!string.IsNullOrEmpty(response.status) && response.status == "VALID")
             {
@@ -166,6 +167,8 @@ namespace MonsterAir.Controllers
 
                 if (sslcz.OrderValidate(response.tran_id, response.amount, response.currency, Request))
                 {
+                    var journeyModel = new JourneyAddModel();
+                    await journeyModel.AddUserJourneyHistory(response.value_b, int.Parse(response.value_a));
                     return View("Success");
                 }
             }
@@ -182,6 +185,9 @@ namespace MonsterAir.Controllers
 
             return View("Error");
         }
+
+
+
 
     }
 }

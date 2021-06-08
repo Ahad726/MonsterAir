@@ -22,6 +22,11 @@ namespace MonsterAir.Data
             _dbSet.Add(entity);
         }
 
+        public virtual async Task AddAsync(T entity)
+        {
+             await _dbSet.AddAsync(entity);
+        }
+
         public virtual void Edit(T entityToUpdate)
         {
             _dbSet.Attach(entityToUpdate);
@@ -101,6 +106,11 @@ namespace MonsterAir.Data
         public virtual T GetById(int id)
         {
             return _dbSet.Find(id);
+        }
+
+        public virtual async Task<T> GetByIdAsync(int id)
+        {
+            return await  _dbSet.FindAsync(id);
         }
 
         public virtual int GetCount(Expression<Func<T, bool>> filter = null)

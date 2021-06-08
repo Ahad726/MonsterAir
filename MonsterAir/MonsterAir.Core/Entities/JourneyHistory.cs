@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MonsterAir.Core.Entities
 {
-    public enum FlightStatus
+    public enum JourneyStatus
     {
         Upcoming,
         Traveled
     }
-    public class FlightHistory 
+    public class JourneyHistory 
     {
         public int Id { get; set; }
         public string UserId { get; set; }
@@ -23,6 +23,6 @@ namespace MonsterAir.Core.Entities
         public string Time { get; set; }
         public string AirportName { get; set; }
         public double Price { get; set; }
-        public FlightStatus Status { get; set; }
+        public JourneyStatus Status { get; set; }
     }
 }

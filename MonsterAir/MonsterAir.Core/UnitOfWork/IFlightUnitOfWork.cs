@@ -12,5 +12,6 @@ namespace MonsterAir.Core.UnitOfWork
     public interface IFlightUnitOfWork : IUnitOfWork<AirContext>
     {
         IFlightRepository FlightRepository { get; set; }
+        IJourneyRepository JourneyRepository { get; set; }
     }
 }

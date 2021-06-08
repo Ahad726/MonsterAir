@@ -48,6 +48,12 @@ namespace MonsterAir.Core
             builder.RegisterType<FlightService>().As<IFlightService>()
                 .InstancePerLifetimeScope();
 
+            builder.RegisterType<JourneyRepository>().As<IJourneyRepository>()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<JourneyService>().As<IJourneyService>()
+               .InstancePerLifetimeScope();
+
             base.Load(builder);
         }
     }
