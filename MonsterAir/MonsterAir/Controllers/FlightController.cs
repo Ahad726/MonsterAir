@@ -186,8 +186,13 @@ namespace MonsterAir.Controllers
             return View("Error");
         }
 
-
-
-
+        [HttpGet]
+        public async Task<IActionResult> BookingHistory()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var viewModel = new JourneyViewModel();
+            var allJourney = viewModel.GetUserFlightHistory(user.Id);
+            return View(allJourney);
+        }  
     }
 }

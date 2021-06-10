@@ -23,9 +23,9 @@ namespace MonsterAir.Core.Services
             _flightUnitOfWork.Save();
         }
 
-        public IEnumerable<JourneyHistory> GetUserJourney()
+        public IEnumerable<JourneyHistory> GetUserJourney(string userId)
         {
-            throw new NotImplementedException();
+            return _flightUnitOfWork.JourneyRepository.Get(x => x.UserId == userId,m => m.OrderBy(x => x.TakeOfDate));
         }
     }
 }

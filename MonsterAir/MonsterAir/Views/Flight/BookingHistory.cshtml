@@ -1,0 +1,14 @@
+﻿@using MonsterAir.Models.JourneyHistoryModels
+@model IEnumerable<HistoryBaseModel>
+
+<div class="row">
+    @foreach (var historyModel in Model)
+    {
+        <div class="card card-default p-2 m-2 col-sm-3" @*style="width:20em"*@>
+            <div class="card-info">
+                <h3>@historyModel.Source To @historyModel.Destination</h3>
+                <p>Date : @historyModel.TakeOfDate Time : @historyModel.Time</p>
+            </div>
+        </div>
+    }
+</div>

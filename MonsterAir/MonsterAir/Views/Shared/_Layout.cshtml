@@ -89,7 +89,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a asp-controller="Flight" asp-action="Index" class="nav-link active">
+                                    <a asp-controller="Flight" asp-action="Index" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>View All</p>
                                     </a>
@@ -101,6 +101,15 @@
                                             <a asp-controller="FLight" asp-action="Add" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Add New</p>
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item">
+                                            <a asp-controller="Flight" asp-action="BookingHistory" class="nav-link">
+                                                <i class="fas fa-history nav-icon"></i>
+                                                <p>Booking  History</p>
                                             </a>
                                         </li>
                                     }

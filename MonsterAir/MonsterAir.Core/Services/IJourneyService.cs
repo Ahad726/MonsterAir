@@ -10,6 +10,6 @@ namespace MonsterAir.Core.Services
     public interface IJourneyService
     {
         void AddFlightJourney(JourneyHistory journeyHistory);
-        IEnumerable<JourneyHistory> GetUserJourney();
+        IEnumerable<JourneyHistory> GetUserJourney(string userId);
     }
 }
